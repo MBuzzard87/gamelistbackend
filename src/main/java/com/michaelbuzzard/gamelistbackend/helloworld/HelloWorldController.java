@@ -1,5 +1,6 @@
-package com.michaelbuzzard.gamelistbackend.controller;
+package com.michaelbuzzard.gamelistbackend.helloworld;
 
+import com.michaelbuzzard.gamelistbackend.helloworld.HelloWorldBean;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

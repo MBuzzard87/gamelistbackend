@@ -1,4 +1,4 @@
-package com.michaelbuzzard.gamelistbackend.controller;
+package com.michaelbuzzard.gamelistbackend.helloworld;
 
 public class HelloWorldBean {
 

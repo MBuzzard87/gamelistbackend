@@ -20,11 +20,11 @@ public class GameService {
     }
 
 
-    public Game findbyId(Long id) {
-        return null;
-    }
-
-    public Game deleteGame(Long id) {
-        return null;
-    }
+//    public Game findbyId(Long id) {
+//        return null;
+//    }
+//
+//    public Game deleteGame(Long id) {
+//        return null;
+//    }
 }

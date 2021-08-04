@@ -2,6 +2,7 @@ package com.michaelbuzzard.gamelistbackend.controller;
 
 
 import com.michaelbuzzard.gamelistbackend.entity.Game;
+import com.michaelbuzzard.gamelistbackend.repository.GameRepository;
 import com.michaelbuzzard.gamelistbackend.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,40 +18,43 @@ import java.util.List;
 @RestController
 public class GameController {
 
+//    @Autowired
+//    private GameService gameService;
+
     @Autowired
-    private GameService gameService;
+    private GameRepository gameRepository;
 
-    @GetMapping("/{username}/games")
-    public List<Game> getAllGames(@PathVariable String username) {
-        return gameService.findAllGames(username);
+    @GetMapping(path ="Buzzywuzzy87/games")
+    public List<Game> getAllGames() {
+        return gameRepository.findAll();
     }
 
 
 
-    @GetMapping("/{username}/games/{id}")
-    public Game getGame(@PathVariable String username, @PathVariable long id) {
-        return gameService.findbyId(id);
-    }
-
-    @DeleteMapping("/{username}/games/{id}")
-    public ResponseEntity<Void> deleteGame(@PathVariable String username, @PathVariable long id) {
-        ResponseEntity response = gameService.deleteGame(id);
-
-        return response;
-    }
-
-    @PutMapping("/{username}/games/{id}")
-    public ResponseEntity<Game> updateGame(@PathVariable String username, @PathVariable long id, @RequestBody Game game) {
-        Game updateGame = gameService.updateGame(game);
-        return new ResponseEntity<>(game, HttpStatus.OK);
-    }
-
-    @PostMapping("/users/{username}/games")
-    public ResponseEntity<Void> createGame(@PathVariable String username, @RequestBody Game game) {
-        Game gameCreated = gameService.createGame(game);
-
-        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(gameCreated.getId()).toUri();
-
-        return ResponseEntity.created(uri).build();
-    }
+//    @GetMapping("/{username}/games/{id}")
+//    public Game getGame(@PathVariable String username, @PathVariable long id) {
+//        return gameService.findbyId(id);
+//    }
+//
+//    @DeleteMapping("/{username}/games/{id}")
+//    public ResponseEntity<Void> deleteGame(@PathVariable String username, @PathVariable long id) {
+//        ResponseEntity response = gameService.deleteGame(id);
+//
+//        return response;
+//    }
+//
+//    @PutMapping("/{username}/games/{id}")
+//    public ResponseEntity<Game> updateGame(@PathVariable String username, @PathVariable long id, @RequestBody Game game) {
+//        Game updateGame = gameService.updateGame(game);
+//        return new ResponseEntity<>(game, HttpStatus.OK);
+//    }
+//
+//    @PostMapping("/users/{username}/games")
+//    public ResponseEntity<Void> createGame(@PathVariable String username, @RequestBody Game game) {
+//        Game gameCreated = gameService.createGame(game);
+//
+//        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(gameCreated.getId()).toUri();
+//
+//        return ResponseEntity.created(uri).build();
+//    }
 }

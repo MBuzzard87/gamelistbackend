@@ -14,32 +14,32 @@ import java.util.List;
 @Service
 public class GameService {
 
-    @Autowired
-    private GameRepository gameRepository;
-
-
-    public List<Game> findAllGames(String username) {
-        return gameRepository.findAll();
-    }
-
-
-    public Game findbyId(Long id) {
-        return gameRepository.getById(id);
-    }
-
-    public ResponseEntity<Void> deleteGame(Long id) {
-        gameRepository.deleteById(id);
-        return ResponseEntity.noContent().build();
-    }
-
-    public Game updateGame(Game game) {
-        Game gameUpdated = gameRepository.save(game);
-        return gameUpdated;
-    }
-
-    public Game createGame(Game game) {
-        Game gameCreated = gameRepository.save(game);
-
-        return gameCreated;
-    }
+//    @Autowired
+//    private GameRepository gameRepository;
+//
+//
+//    public List<Game> findAllGames(String username) {
+//        return gameRepository.findByUsername(username);
+//    }
+//
+//
+//    public Game findbyId(Long id) {
+//        return gameRepository.getById(id);
+//    }
+//
+//    public ResponseEntity<Void> deleteGame(Long id) {
+//        gameRepository.deleteById(id);
+//        return ResponseEntity.noContent().build();
+//    }
+//
+//    public Game updateGame(Game game) {
+//        Game gameUpdated = gameRepository.save(game);
+//        return gameUpdated;
+//    }
+//
+//    public Game createGame(Game game) {
+//        Game gameCreated = gameRepository.save(game);
+//
+//        return gameCreated;
+//    }
 }

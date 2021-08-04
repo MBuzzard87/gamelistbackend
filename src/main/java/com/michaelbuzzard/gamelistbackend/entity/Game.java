@@ -1,7 +1,7 @@
 package com.michaelbuzzard.gamelistbackend.entity;
 
 import javax.persistence.*;
-
+import java.util.Objects;
 
 
 @Entity
@@ -14,13 +14,13 @@ public class Game {
     private String username;
     private String name;
     private String console;
-    private boolean isComplete;
+    private String isComplete;
 
 
     public Game() {
     }
 
-    public Game(long id, String username, String name, String console, boolean isComplete) {
+    public Game(long id, String username, String name, String console, String isComplete) {
         this.id = id;
         this.username = username;
         this.name = name;
@@ -56,11 +56,11 @@ public class Game {
         this.console = console;
     }
 
-    public boolean getIsComplete() {
+    public String getIsComplete() {
         return isComplete;
     }
 
-    public void setIsComplete(boolean complete) {
+    public void setIsComplete(String complete) {
         isComplete = complete;
     }
 
@@ -69,10 +69,22 @@ public class Game {
     public String toString() {
         return "Game{" +
                 "id=" + id +
-                ", username='" + username + '\'' +
                 ", name='" + name + '\'' +
                 ", console='" + console + '\'' +
                 ", isComplete=" + isComplete +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return id.equals(game.id) && username.equals(game.username) && name.equals(game.name) && console.equals(game.console) && isComplete.equals(game.isComplete);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, name, console, isComplete);
     }
 }

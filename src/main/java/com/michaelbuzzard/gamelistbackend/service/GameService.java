@@ -19,7 +19,7 @@ public class GameService {
 
 
     public List<Game> findAllGames(String username) {
-        return gameRepository.findByUsername(username);
+        return gameRepository.findAll();
     }
 
 

@@ -13,33 +13,33 @@ import java.net.URI;
 import java.util.List;
 
 
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class GameController {
 
     @Autowired
     private GameService gameService;
 
-    @GetMapping("/users/{username}/games")
+    @GetMapping("/{username}/games")
     public List<Game> getAllGames(@PathVariable String username) {
         return gameService.findAllGames(username);
     }
 
 
 
-    @GetMapping("/users/{username}/games/{id}")
+    @GetMapping("/{username}/games/{id}")
     public Game getGame(@PathVariable String username, @PathVariable long id) {
         return gameService.findbyId(id);
     }
 
-    @DeleteMapping("/users/{username}/games/{id}")
+    @DeleteMapping("/{username}/games/{id}")
     public ResponseEntity<Void> deleteGame(@PathVariable String username, @PathVariable long id) {
         ResponseEntity response = gameService.deleteGame(id);
 
         return response;
     }
 
-    @PutMapping("/users/{username}/games/{id}")
+    @PutMapping("/{username}/games/{id}")
     public ResponseEntity<Game> updateGame(@PathVariable String username, @PathVariable long id, @RequestBody Game game) {
         Game updateGame = gameService.updateGame(game);
         return new ResponseEntity<>(game, HttpStatus.OK);

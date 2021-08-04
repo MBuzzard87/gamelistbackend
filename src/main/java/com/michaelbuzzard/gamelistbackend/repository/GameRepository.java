@@ -1,4 +1,10 @@
 package com.michaelbuzzard.gamelistbackend.repository;
 
-public class GameRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+public interface GameRepository extends JpaRepository {
+
+
+
 }

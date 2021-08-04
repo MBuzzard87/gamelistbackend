@@ -3,20 +3,21 @@ package com.michaelbuzzard.gamelistbackend.controller;
 
 import com.michaelbuzzard.gamelistbackend.entity.Game;
 import com.michaelbuzzard.gamelistbackend.service.GameService;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
+
 
 @CrossOrigin(origins = "http://localhost:4200/")
 @RestController
 public class GameController {
 
+    @Autowired
     private GameService gameService;
 
-    @GetMapping("/users/{username}/games")
-    public List<Game> getAllGames(@PathVariable String username) {
+    @GetMapping("/users/games")
+    public List<Game> getAllGames() {
         return gameService.findAllGames();
     }
 

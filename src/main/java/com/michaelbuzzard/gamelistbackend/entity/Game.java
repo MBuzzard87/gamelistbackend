@@ -1,10 +1,7 @@
 package com.michaelbuzzard.gamelistbackend.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Objects;
+import javax.persistence.*;
+
 
 
 @Entity
@@ -69,15 +66,13 @@ public class Game {
 
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Game game = (Game) o;
-        return isComplete == game.isComplete && id.equals(game.id) && username.equals(game.username) && name.equals(game.name) && console.equals(game.console);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, username, name, console, isComplete);
+    public String toString() {
+        return "Game{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", console='" + console + '\'' +
+                ", isComplete=" + isComplete +
+                '}';
     }
 }

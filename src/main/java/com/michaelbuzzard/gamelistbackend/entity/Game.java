@@ -1,14 +1,18 @@
 package com.michaelbuzzard.gamelistbackend.entity;
 
-import javax.persistence.*;
+import sun.util.resources.Bundles;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import java.util.Objects;
 
 
 @Entity
 public class Game {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     private String username;
@@ -66,13 +70,15 @@ public class Game {
 
 
     @Override
-    public String toString() {
-        return "Game{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", name='" + name + '\'' +
-                ", console='" + console + '\'' +
-                ", isComplete=" + isComplete +
-                '}';
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return isComplete == game.isComplete && id.equals(game.id) && username.equals(game.username) && name.equals(game.name) && console.equals(game.console);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, name, console, isComplete);
     }
 }

@@ -1,6 +1,10 @@
 package com.michaelbuzzard.gamelistbackend.entity;
 
-import javax.persistence.*;
+import sun.util.resources.Bundles;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Objects;
 
 
@@ -8,19 +12,19 @@ import java.util.Objects;
 public class Game {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue
     private Long id;
 
     private String username;
     private String name;
     private String console;
-    private String isComplete;
+    private boolean isComplete;
 
 
     public Game() {
     }
 
-    public Game(long id, String username, String name, String console, String isComplete) {
+    public Game(long id, String username, String name, String console, boolean isComplete) {
         this.id = id;
         this.username = username;
         this.name = name;
@@ -56,31 +60,21 @@ public class Game {
         this.console = console;
     }
 
-    public String getIsComplete() {
+    public boolean getIsComplete() {
         return isComplete;
     }
 
-    public void setIsComplete(String complete) {
+    public void setIsComplete(boolean complete) {
         isComplete = complete;
     }
 
-
-    @Override
-    public String toString() {
-        return "Game{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", console='" + console + '\'' +
-                ", isComplete=" + isComplete +
-                '}';
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Game game = (Game) o;
-        return id.equals(game.id) && username.equals(game.username) && name.equals(game.name) && console.equals(game.console) && isComplete.equals(game.isComplete);
+        return isComplete == game.isComplete && id.equals(game.id) && username.equals(game.username) && name.equals(game.name) && console.equals(game.console);
     }
 
     @Override

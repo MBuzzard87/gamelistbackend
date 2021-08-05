@@ -18,4 +18,4 @@ INSERT INTO game (username,name,console,is_complete)VALUES
 ('Buzzywuzzy87','Mega Man','NES','Yes'),
 ('Buzzywuzzy87','Sonic the Hedgehog','Genesis','Yes'),
 ('Buzzywuzzy87','Crusader of Centy','Genesis','No'),
-('Buzzywuzzy87','Castlevania: Symphony of the Night','Playstation 1','No');
+('Buzzywuzzy87','Castlevania: Symphony of the Night','PS1','No');

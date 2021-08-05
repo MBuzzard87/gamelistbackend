@@ -4,8 +4,12 @@ package com.michaelbuzzard.gamelistbackend.controller;
 import com.michaelbuzzard.gamelistbackend.entity.Game;
 import com.michaelbuzzard.gamelistbackend.repository.GameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import java.net.URI;
 import java.util.List;
 
 
@@ -21,20 +25,33 @@ public class GameController {
         return gameRepository.findByUsername(username);
     }
 
-//    @GetMapping("/users/{username}/games/{id}")
-//    public Game getGame(@PathVariable String username, @PathVariable long id) {
-//        return gameService.findbyId(id);
-//    }
-//
-//    @DeleteMapping("/users/{username}/games/{id}")
-//    public ResponseEntity<Void> deleteGame(@PathVariable String username, @PathVariable long id) {
-//        Game game = gameService.deleteGame(id);
-//        if(game != null) {
-//            return ResponseEntity.noContent().build();
-//        } else {
-//            return ResponseEntity.notFound().build();
-//        }
-//    }
+    @GetMapping("{username}/games/{id}")
+    public Game getGame(@PathVariable long id) {
+        return gameRepository.findById(id).get();
+    }
 
+    @DeleteMapping("/{username}/games/{id}")
+    public ResponseEntity<Void> deleteGame(@PathVariable String username, @PathVariable long id) {
+        gameRepository.deleteById(id);
 
+        return ResponseEntity.noContent().build();
+
+    }
+
+    @PutMapping("{username}/games/{id}")
+    public ResponseEntity<Game> updateGame(@PathVariable String username, @PathVariable long id, @RequestBody Game game) {
+        gameRepository.save(game);
+
+        return new ResponseEntity<>(game, HttpStatus.OK);
+    }
+
+    @PostMapping("{username}/createGame")
+    public ResponseEntity<Void> createGame(@PathVariable String username,@RequestBody Game game) {
+        game.setUsername(username);
+        Game createdGame = gameRepository.save(game);
+        URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(createdGame.getId()).toUri();
+
+        return ResponseEntity.created(uri).build();
+
+    }
 }

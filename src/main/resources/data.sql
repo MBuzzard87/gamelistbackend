@@ -1,7 +1,6 @@
+DROP TABLE IF EXISTS game;
 
-DROP TABLE IF EXISTS game_list;
-
-CREATE TABLE game_list
+CREATE TABLE game
 (
     id int AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(250) NOT NULL,
@@ -12,11 +11,11 @@ CREATE TABLE game_list
 );
 
 
-INSERT INTO game_list (username,name,console,is_complete)VALUES
-('Buzzywuzzy87','LittleSamson','NES','Yes'),
-('Buzzywuzzy87','SuperCastlevaniaIV','SNES','Yes'),
-('Buzzywuzzy87','SuperMetroid','SNES','Yes'),
-('Buzzywuzzy87','MegaMan','NES','Yes'),
-('Buzzywuzzy87','SonictheHedgehog','Genesis','Yes'),
-('Buzzywuzzy87','CrusaderofCenty','Genesis','No'),
-('Buzzywuzzy87','Castlevania:SymphonyoftheNight','Playstation1','No');
+INSERT INTO game (username,name,console,is_complete)VALUES
+('Buzzywuzzy87','Little Samson','NES','Yes'),
+('Buzzywuzzy87','Super Castlevania IV','SNES','Yes'),
+('Buzzywuzzy87','Super Metroid','SNES','Yes'),
+('Buzzywuzzy87','Mega Man','NES','Yes'),
+('Buzzywuzzy87','Sonic the Hedgehog','Genesis','Yes'),
+('Buzzywuzzy87','Crusader of Centy','Genesis','No'),
+('Buzzywuzzy87','Castlevania: Symphony of the Night','Playstation 1','No');

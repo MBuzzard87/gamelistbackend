@@ -19,6 +19,9 @@ target/
 *.iml
 *.ipr
 
+## Resources ##
+src/main/resources/
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/

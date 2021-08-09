@@ -17,18 +17,18 @@ public class Game {
     private String username;
     private String name;
     private String console;
-    private String isComplete;
+    private String status;
 
 
     public Game(){
     }
 
-    public Game(long id,String username,String name,String console,String isComplete){
+    public Game(long id,String username,String name,String console,String status){
         this.id=id;
         this.username=username;
         this.name=name;
         this.console=console;
-        this.isComplete=isComplete;
+        this.status=status;
     }
 
     public Long getId(){
@@ -59,12 +59,12 @@ public class Game {
         this.console=console;
     }
 
-    public String getIsComplete(){
-        return isComplete;
+    public String getStatus(){
+        return status;
     }
 
-    public void setIsComplete(String complete){
-        isComplete=complete;
+    public void setStatus(String complete){
+        this.status=complete;
     }
 
     @Override
@@ -74,7 +74,7 @@ public class Game {
                 ",username='"+username+'\''+
                 ",name='"+name+'\''+
                 ",console='"+console+'\''+
-                ",isComplete="+isComplete+
+                ",status="+status+
                 '}';
     }
 

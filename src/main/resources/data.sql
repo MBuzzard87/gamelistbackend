@@ -48,4 +48,5 @@ INSERT INTO game (username,name,console,status)VALUES
 ('Buzzywuzzy87','Doom Eternal','Switch','Complete'),
 ('Buzzywuzzy87','Luigi''s Mansion 3','Switch','Complete'),
 ('Buzzywuzzy87','Battletoads','NES','Not Complete'),
-('Buzzywuzzy87','Nier: Automata','Xbox One','Not Complete');
+('Buzzywuzzy87','Nier: Automata','Xbox One','Not Complete'),
+('Buzzywuzzy87','Chrono Trigger','SNES','Not Complete');

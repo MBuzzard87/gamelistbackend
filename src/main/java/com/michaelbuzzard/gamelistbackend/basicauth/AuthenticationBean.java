@@ -1,13 +1,13 @@
-package com.michaelbuzzard.gamelistbackend.helloworld;
+package com.michaelbuzzard.gamelistbackend.basicauth;
 
-public class HelloWorldBean {
+public class AuthenticationBean {
 
 
 
 
     private String message;
 
-    public HelloWorldBean(String message) {
+    public AuthenticationBean(String message) {
         this.message = message;
     }
 

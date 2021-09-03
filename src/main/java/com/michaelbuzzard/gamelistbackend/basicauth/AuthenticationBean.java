@@ -21,7 +21,7 @@ public class AuthenticationBean {
 
     @Override
     public String toString() {
-        return "HelloWorldBean{" +
+        return "AuthenticationBean{" +
                 "message='" + message + '\'' +
                 '}';
     }
